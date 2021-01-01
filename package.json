@@ -4,6 +4,7 @@
   "description": "reusable scaffolding",
   "main": "app.js",
   "scripts": {
+    "build": "webpack",
     "start:dev": "cross-env NODE_ENV=development webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

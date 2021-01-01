@@ -4,14 +4,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entry_dir = './src/app.js';
-const outputPath = path.join(__dirname, 'dist');
+const outputPath = path.join(__dirname, 'build');
 
 module.exports = {
     entry: entry_dir,
     output: {
         path: outputPath,
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: 'app.js'
     },
     module: {
         rules: [
