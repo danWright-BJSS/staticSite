@@ -27,7 +27,7 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: './src/resources', to: './resources' }
+                { from: './src/containers/three/clock/assets', to: './resources/clock/assets' }
             ]
         })
     ],

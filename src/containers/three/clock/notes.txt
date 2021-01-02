@@ -1,5 +1,0 @@
-from root
-
-http-server . -p 8000
-
-http://localhost:8000/clock.html
