@@ -44,12 +44,12 @@ export function init(){
 	loader = new GLTFLoader();
 	textureLoader = new THREE.TextureLoader()
 	loadClockBody();
-	// loadClockFace();
-	// loadClockFaceDetail();
-	// loadClockHourHand();
-	// loadClockMinuteHand();
-	// loadClockSecondsHand();
-	// loadClockDetail();
+	loadClockFace();
+	loadClockFaceDetail();
+	loadClockHourHand();
+	loadClockMinuteHand();
+	loadClockSecondsHand();
+	loadClockDetail();
 
 	start = Date.now();
 
@@ -74,8 +74,6 @@ export function init(){
 
 function loadClockBody(){
     console.log('load clock');
-	// const gltfModel = useGLTF('../../../resources/clock/clockBody.glb', true);
-	// loader.load('../../../resources/clock/clockBody.glb', (gltf) => {
     return new Promise((resolve, reject) => {
         console.log('Promise')
         loader.load('../../../resources/clock/clockBody.glb', function(gltf) {
@@ -96,19 +94,21 @@ function loadClockBody(){
 };
 
 function loadClockFace(){
-	loader.load('../../../resources/clock/clockFace.glb', function(gltf){
-		clockFace = gltf.scene;
-		clockFace.rotation.set( 0, 2*Math.PI, 0 );
-		clockFace.children[0].material.map = textureLoader.load( '../../../resources/clock/clockFace.jpg', function() {
-			scene.add(clockFace);
-		});
-	}, 
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	function(err){
-		console.log(err);
-	});
+    return new Promise((resolve, reject) => {
+        loader.load('../../../resources/clock/clockFace.glb', function(gltf){
+            clockFace = gltf.scene;
+            clockFace.rotation.set( 0, 2*Math.PI, 0 );
+            clockFace.children[0].material.map = textureLoader.load( '../../../resources/clock/clockFace.jpg', function() {
+                scene.add(clockFace);
+            });
+        });
+    });
+	// function ( xhr ) {
+	// 	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	// },
+	// function(err){
+	// 	console.log(err);
+	// });
 };
 
 function loadClockFaceDetail() {
@@ -149,67 +149,75 @@ function loadClockFaceDetail() {
 };
 
 function loadClockHourHand(){
-	loader.load('../../../resources/clock/clockHour2.glb', function(gltf){
-		hoursHand = gltf.scene;
-		hoursHand.rotation.set( Math.random(), 0, 0 );
-		hoursHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
-			hoursPivot.add(hoursHand);
-		});
-	}, 
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	function(err){
-		console.log(err);
-	});
+    return new Promise((resolve, reject) => {
+        loader.load('../../../resources/clock/clockHour2.glb', function(gltf){
+            hoursHand = gltf.scene;
+            hoursHand.rotation.set( Math.random(), 0, 0 );
+            hoursHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
+                hoursPivot.add(hoursHand);
+            });
+        });
+    });
+	// function ( xhr ) {
+	// 	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	// },
+	// function(err){
+	// 	console.log(err);
+	// });
 };
 
 function loadClockMinuteHand(){
-	loader.load('../../../resources/clock/clockMinutes.glb', function(gltf){
-		minutesHand = gltf.scene;
-		minutesHand.rotation.set( Math.random(), 0, 0 );
-		minutesHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
-			minutesPivot.add( minutesHand );
-		} );
-	}, 
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	function(err){
-		console.log(err);
-	});
+    return new Promise((resolve, reject) => {
+        loader.load('../../../resources/clock/clockMinutes.glb', function(gltf){
+            minutesHand = gltf.scene;
+            minutesHand.rotation.set( Math.random(), 0, 0 );
+            minutesHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
+                minutesPivot.add( minutesHand );
+            } );
+        });
+    });
+	// function ( xhr ) {
+	// 	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	// },
+	// function(err){
+	// 	console.log(err);
+	// });
 };
 
 function loadClockSecondsHand(){
-	loader.load('../../../resources/clock/clockSeconds.glb', function(gltf){
-		secondsHand = gltf.scene;
-		secondsHand.rotation.set( Math.random(), 0, 0);
-		secondsHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
-			secondsPivot.add( secondsHand );
-		});
-	}, 
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	function(err){
-		console.log(err);
-	});
+    return new Promise((resolve, reject) => {
+        loader.load('../../../resources/clock/clockSeconds.glb', function(gltf){
+            secondsHand = gltf.scene;
+            secondsHand.rotation.set( Math.random(), 0, 0);
+            secondsHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
+                secondsPivot.add( secondsHand );
+            });
+        });
+    });
+	// function ( xhr ) {
+	// 	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	// },
+	// function(err){
+	// 	console.log(err);
+	// });
 };
 
 function loadClockDetail(){
-	loader.load( '../../../resources/clock/clockDetail.glb', function(gltf){
-		clockDetail = gltf.scene;
-		clockDetail.rotation.set( -Math.PI/2, 0, 0 );
-		clockDetail.children[0].material.map = textureLoader.load( '../../../resources/clock/clockBody.jpg', function() {
-			scene.add( clockDetail );
-		});
-	},
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	function(err){
-		console.log(err);
-	});
+    return new Promise((resolve, reject) => {
+        loader.load( '../../../resources/clock/clockDetail.glb', function(gltf){
+            clockDetail = gltf.scene;
+            clockDetail.rotation.set( -Math.PI/2, 0, 0 );
+            clockDetail.children[0].material.map = textureLoader.load( '../../../resources/clock/clockBody.jpg', function() {
+                scene.add( clockDetail );
+            });
+        });
+    });
+	// function ( xhr ) {
+	// 	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	// },
+	// function(err){
+	// 	console.log(err);
+	// });
 }
 
 function createCamera(){
