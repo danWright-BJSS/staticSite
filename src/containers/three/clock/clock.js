@@ -76,11 +76,11 @@ function loadClockBody(){
     console.log('load clock');
     return new Promise((resolve, reject) => {
         console.log('Promise')
-        loader.load('../../../resources/clock/clockBody.glb', function(gltf) {
+        loader.load('../../../resources/clock/assets/clockBody.glb', function(gltf) {
             console.log('resolve data: ', gltf);
             clock = gltf.scene;
             clock.rotation.set( 0, 2*Math.PI, 0 );
-            clock.children[0].material.map = textureLoader.load( '../../../resources/clock/clockBody.jpg', function(){
+            clock.children[0].material.map = textureLoader.load( '../../../resources/clock/assets/clockBody.jpg', function(){
                 scene.add(clock);
             });
         });
@@ -95,10 +95,10 @@ function loadClockBody(){
 
 function loadClockFace(){
     return new Promise((resolve, reject) => {
-        loader.load('../../../resources/clock/clockFace.glb', function(gltf){
+        loader.load('../../../resources/clock/assets/clockFace.glb', function(gltf){
             clockFace = gltf.scene;
             clockFace.rotation.set( 0, 2*Math.PI, 0 );
-            clockFace.children[0].material.map = textureLoader.load( '../../../resources/clock/clockFace.jpg', function() {
+            clockFace.children[0].material.map = textureLoader.load( '../../../resources/clock/assets/clockFace.jpg', function() {
                 scene.add(clockFace);
             });
         });
@@ -150,10 +150,10 @@ function loadClockFaceDetail() {
 
 function loadClockHourHand(){
     return new Promise((resolve, reject) => {
-        loader.load('../../../resources/clock/clockHour2.glb', function(gltf){
+        loader.load('../../../resources/clock/assets/clockHour2.glb', function(gltf){
             hoursHand = gltf.scene;
             hoursHand.rotation.set( Math.random(), 0, 0 );
-            hoursHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
+            hoursHand.children[0].material.map = textureLoader.load( '../../../resources/clock/assets/clock.jpg', function(){
                 hoursPivot.add(hoursHand);
             });
         });
@@ -168,10 +168,10 @@ function loadClockHourHand(){
 
 function loadClockMinuteHand(){
     return new Promise((resolve, reject) => {
-        loader.load('../../../resources/clock/clockMinutes.glb', function(gltf){
+        loader.load('../../../resources/clock/assets/clockMinutes.glb', function(gltf){
             minutesHand = gltf.scene;
             minutesHand.rotation.set( Math.random(), 0, 0 );
-            minutesHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
+            minutesHand.children[0].material.map = textureLoader.load( '../../../resources/clock/assets/clock.jpg', function(){
                 minutesPivot.add( minutesHand );
             } );
         });
@@ -186,10 +186,10 @@ function loadClockMinuteHand(){
 
 function loadClockSecondsHand(){
     return new Promise((resolve, reject) => {
-        loader.load('../../../resources/clock/clockSeconds.glb', function(gltf){
+        loader.load('../../../resources/clock/assets/clockSeconds.glb', function(gltf){
             secondsHand = gltf.scene;
             secondsHand.rotation.set( Math.random(), 0, 0);
-            secondsHand.children[0].material.map = textureLoader.load( '../../../resources/clock/clock.jpg', function(){
+            secondsHand.children[0].material.map = textureLoader.load( '../../../resources/clock/assets/clock.jpg', function(){
                 secondsPivot.add( secondsHand );
             });
         });
@@ -204,10 +204,10 @@ function loadClockSecondsHand(){
 
 function loadClockDetail(){
     return new Promise((resolve, reject) => {
-        loader.load( '../../../resources/clock/clockDetail.glb', function(gltf){
+        loader.load( '../../../resources/clock/assets/clockDetail.glb', function(gltf){
             clockDetail = gltf.scene;
             clockDetail.rotation.set( -Math.PI/2, 0, 0 );
-            clockDetail.children[0].material.map = textureLoader.load( '../../../resources/clock/clockBody.jpg', function() {
+            clockDetail.children[0].material.map = textureLoader.load( '../../../resources/clock/assets/clockBody.jpg', function() {
                 scene.add( clockDetail );
             });
         });
