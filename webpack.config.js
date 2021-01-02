@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -15,18 +16,24 @@ module.exports = {
     },
     module: {
         rules: [
-             { test: /\.(js|jsx)$/, exclude: /node_modules/, use: { loader: "babel-loader" } }
+             { test: /\.(js|jsx)$/, exclude: /node_modules/, use: { loader: "babel-loader" } },
+             { test: /\.(glb|gltf|obj)$/, exclude: /node_modules/, use: { loader: 'file-loader', options: { outputPath: 'assets/models', sourceMap: true } } }
         ]
     },
     plugins:[
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: './index.html'
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: './src/resources', to: './resources' }
+            ]
         })
     ],
     devServer: {
         contentBase: outputPath,
-        open: true,
+        host: 'localhost',
         port: 3030
     }
 }

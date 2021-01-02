@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ThreeAppContainer from './three/index';
+import MainPage from './pages/main';
 
-// const render = () => {
-    ReactDOM.render(
-        <ThreeAppContainer/>,
-        document.getElementById('root')
-    );
-// };
+ReactDOM.render(
+    <MainPage />,
+    document.getElementById('root')
+);
