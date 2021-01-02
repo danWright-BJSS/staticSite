@@ -24,11 +24,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: './index.html'
-        }),
-        new CopyPlugin({
-            patterns: [
-                { from: './src/resources', to: './resources' }
-            ]
         })
     ],
     devServer: {
