@@ -78,14 +78,14 @@ function loadClockBody(){
 	// loader.load('../../../resources/clock/clockBody.glb', (gltf) => {
     return new Promise((resolve, reject) => {
         console.log('Promise')
-        loader.load('./resources/clock/clockBody.glb', (gltf) => resolve((gltf) => {
-            console.log('resolve data: ', data);
+        loader.load('../../../resources/clock/clockBody.glb', function(gltf) {
+            console.log('resolve data: ', gltf);
             clock = gltf.scene;
             clock.rotation.set( 0, 2*Math.PI, 0 );
             clock.children[0].material.map = textureLoader.load( '../../../resources/clock/clockBody.jpg', function(){
                 scene.add(clock);
             });
-        }));
+        });
     });
         // function ( xhr ) {
         //     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
