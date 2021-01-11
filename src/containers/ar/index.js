@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-
+require('./aframe.min.js');
 
 
 export default function ARContainer() {
 
     return ( 
         <div>
-          <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
         <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <a-scene embedded arjs>
