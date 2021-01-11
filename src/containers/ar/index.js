@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-require('./aframe.min.js');
-
+require('./aframe.min');
+require('./aframe-ar')
 
 export default function ARContainer() {
 
     return ( 
         <div>
-        <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <a-scene embedded arjs>
       <a-marker preset="hiro">
