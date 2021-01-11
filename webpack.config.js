@@ -16,8 +16,9 @@ module.exports = {
     },
     module: {
         rules: [
-             { test: /\.(js|jsx)$/, exclude: /node_modules/, use: { loader: "babel-loader" } },
-             { test: /\.(glb|gltf|obj)$/, exclude: /node_modules/, use: { loader: 'file-loader', options: { outputPath: 'assets/models', sourceMap: true } } }
+            { test: /\.css$/i, use: [ "style-loader", "css-loader" ] },
+            { test: /\.(js|jsx)$/, exclude: /node_modules/, use: { loader: "babel-loader" } },
+            { test: /\.(glb|gltf|obj)$/, exclude: /node_modules/, use: { loader: 'file-loader', options: { outputPath: 'assets/models', sourceMap: true } } }
         ]
     },
     plugins:[
@@ -27,7 +28,8 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: './src/containers/three/clock/assets', to: './resources/clock/assets' }
+                { from: './src/containers/three/clock/assets', to: './resources/clock/assets' },
+                { from: './src/containers/three/building/assets', to: './resources/building/assets' }
             ]
         })
     ],

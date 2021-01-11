@@ -1,0 +1,24 @@
+#printers{
+    z-index: 2; 
+    position: absolute; 
+    left: 0;
+    top: 0;
+}
+#teams{
+    z-index: 2; 
+    position: absolute; 
+    left: 0;
+    top: 62px;
+}
+#locatePerson{
+    z-index: 2; 
+    position: absolute; 
+    left: 0;
+    top: 124px;
+}
+#personModal{
+    z-index: 5; 
+    position: absolute; 
+    left: 0;
+    top: 0;
+}

@@ -2,8 +2,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-import { useGLTF } from '@react-three/drei';
-
 let container;
 let scene;
 let camera;
@@ -31,7 +29,6 @@ let rotationHours = 0;
 
 export function init(){
 
-    console.log('INIT')
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color("skyblue");
 	// scenes.add( new THREE.AxesHelper( 15 ) );
@@ -69,11 +66,12 @@ export function init(){
 	});
 
 	container = document.querySelector("#container");
-	container.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
+    
+    window.addEventListener( 'resize', onWindowResize );
 };
 
 function loadClockBody(){
-    console.log('load clock');
     return new Promise((resolve, reject) => {
         console.log('Promise')
         loader.load('../../../resources/clock/assets/clockBody.glb', function(gltf) {
@@ -113,7 +111,7 @@ function loadClockFace(){
 
 function loadClockFaceDetail() {
 	const fontLoader = new THREE.FontLoader();
-	fontLoader.load('./helvetiker_bold.typeface.json', function(font){
+	fontLoader.load('../../../resources/clock/assets/helvetiker_bold.typeface.json', function(font){
 		const options = {
 			font: font,
 			size: 60,
@@ -275,4 +273,3 @@ function onWindowResize(){
 	camera.updateProjectionMatrix();
 	renderer.setSize( container.clentWidth / container.clientHeight );
 };
-window.addEventListener( 'resize', onWindowResize );
