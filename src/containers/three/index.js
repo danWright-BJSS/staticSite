@@ -11,7 +11,7 @@ const buttons = [
 ]
 
 export default function ThreeAppContainer() {
-    const [ display, setDisplay ] = useState(<Building />);
+    const [ display, setDisplay ] = useState(<Train />);
 
     function switchView(viewType){
         switch(viewType){
@@ -19,7 +19,7 @@ export default function ThreeAppContainer() {
                 return <Clock />
             case 'train':
                 return <Train />
-            case 'lock':
+            case 'building':
                 return <Building />
         }
     }
