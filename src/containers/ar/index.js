@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-require('./aframe.min');
-require('./aframe-ar');
+// require('./aframe.min');
+// require('./aframe-ar');
 
 export default function ARContainer() {
 
